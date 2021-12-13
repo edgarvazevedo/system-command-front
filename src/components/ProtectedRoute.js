@@ -5,6 +5,7 @@ import { AuthContext } from "../contexts/authContext";
 
 function ProtectedRoute({ component: Component }) {
   const { loggedInUser } = useContext(AuthContext);
+  console.log(loggedInUser)
 
   if (loggedInUser.token) {
     return <Component />;
