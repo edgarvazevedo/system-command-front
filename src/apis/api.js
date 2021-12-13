@@ -1,7 +1,7 @@
 import axios from "axios";
-//testanto
+
 const api = axios.create({
-  baseURL: "http://localhost:4000/api/v1",
+  baseURL: "http://localhost:1234/api",
 });
 
 api.interceptors.request.use((config) => {
@@ -18,5 +18,3 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
-
-//teste
