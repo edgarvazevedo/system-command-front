@@ -22,18 +22,9 @@ function App() {
         <Route path="/" element={<ProtectedRoute component={Home} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route
-              path="/product/create"
-              element={<ProtectedRoute component={ProductCreate} />}
-            />
-        <Route
-              path="/product/:id"
-              element={<ProtectedRoute component={ProductDetail} />}
-            />
-            <Route
-              path="/product/delete/:id"
-              element={<ProtectedRoute component={ProductDelete} />}
-            />
+        <Route path="/product/create" element={<ProtectedRoute component={ProductCreate} />} />
+        <Route path="/product/:id" element={<ProtectedRoute component={ProductDetail} />} />
+        <Route path="/product/delete/:id" element={<ProtectedRoute component={ProductDelete} />} />
       </Routes>
     </AuthContextComponent>
   );
