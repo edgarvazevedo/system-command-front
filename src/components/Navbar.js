@@ -78,6 +78,7 @@ function Navbar() {
             >
               Entrar
             </NavLink>
+            
           )}
         </div>
       </div>
