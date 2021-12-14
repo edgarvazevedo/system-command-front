@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 
-
 import api from "../apis/api";
-
-
 
 function Product() {
   const [productDetails, setProductDetails] = useState([]);
-  
 
   useEffect(() => {
     async function fetchProduct() {
@@ -20,23 +16,25 @@ function Product() {
       }
     }
     fetchProduct();
+    
   }, []);
 
-console.log("teste",productDetails)    
+  
+  return (
+    <div>
+      {productDetails.map((currentProduct) => ( 
+         
+        <div key={currentProduct.id}>
+        <p>Nome <span>{currentProduct.name}</span></p>
+        <p>Descrição <span>{currentProduct.description}</span></p>
+        <p>Preço <span>{currentProduct.prince}</span></p>
+        
+      </div>
+      
+        
+      ))}
+    </div>
+  );
+}
 
-return (
-  <div>
-    <h1>Menu</h1>
-   
-    {product.map((currentProduct) => { 
-      return(
-      key={currentProduct._id} 
-      )
-  })}     
-  
-  </div> 
-)
-  
-  
-};
 export default Product;
