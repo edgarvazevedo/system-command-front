@@ -16,22 +16,30 @@ function Product() {
       }
     }
     fetchProduct();
-    
   }, []);
 
-  
   return (
     <div>
-      {productDetails.map((currentProduct) => ( 
-         
+      {productDetails.map((currentProduct) => (
         <div key={currentProduct.id}>
-        <p>Nome <span>{currentProduct.name}</span></p>
-        <p>Descrição <span>{currentProduct.description}</span></p>
-        <p>Preço <span>{currentProduct.prince}</span></p>
-        
-      </div>
-      
-        
+          <p>
+            Nome <span>{currentProduct.name}</span>
+          </p>
+          <p>
+            Descrição <span>{currentProduct.description}</span>
+          </p>
+          <p>
+        <strong>Preço de venda: </strong>
+        {currentProduct.price.toLocaleString("pt-BR", {
+          currency: "BRL",
+          style: "currency",
+        })}
+      </p>
+          <div>
+            <img className="img-fluid mh-100"
+            src={currentProduct.pictureUrl} alt="ds" />
+          </div>
+        </div>
       ))}
     </div>
   );
