@@ -7,8 +7,10 @@ import Login from "../components/Login";
 import Navbar from "./Navbar";
 
 import ProductCreate from "../pedido/ProductCreate";
-import ProductDetail from "../pedido/ProductDetail";
+import Product from "../pedido/Product";
 import ProductDelete from "../pedido/ProductDelete";
+
+import Sobre from "./Sobre";
 
 import ProtectedRoute from "../components/ProtectedRoute";
 import { AuthContextComponent } from "../contexts/authContext";
@@ -16,24 +18,22 @@ import { AuthContextComponent } from "../contexts/authContext";
 function App() {
   return (
     <AuthContextComponent>
-    <Navbar />
-        <div className="container mt-5"></div>
+      <Navbar />
+      <div className="container mt-5"></div>
       <Routes>
         <Route path="/" element={<ProtectedRoute component={Home} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route
-              path="/product/create"
-              element={<ProtectedRoute component={ProductCreate} />}
-            />
+          path="/product/create"
+          element={<ProtectedRoute component={ProductCreate} />}
+        />
+        <Route path="/product" element={<Product />} />
         <Route
-              path="/product/:id"
-              element={<ProtectedRoute component={ProductDetail} />}
-            />
-            <Route
-              path="/product/delete/:id"
-              element={<ProtectedRoute component={ProductDelete} />}
-            />
+          path="/product/delete/:id"
+          element={<ProtectedRoute component={ProductDelete} />}
+        />
+        <Route path="/sobre" element={<Sobre />} />
       </Routes>
     </AuthContextComponent>
   );
