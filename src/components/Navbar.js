@@ -43,7 +43,7 @@ function Navbar() {
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}`
                 }
-                to="/pedido"
+                to="/product"
               >
                 Pedido
               </NavLink>
