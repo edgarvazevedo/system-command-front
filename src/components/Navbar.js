@@ -45,7 +45,7 @@ function Navbar() {
                 }
                 to="/pedido"
               >
-                Pedidos
+                Pedido
               </NavLink>
             </li>
             <li className="nav-item">
