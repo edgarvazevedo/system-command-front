@@ -1,8 +1,5 @@
 import { useState } from "react";
-//import CreatableSelect from "react-select/creatable";
-
 import FormField from "../forms/FormField";
-
 
 import NavbarAdm from "../Admin/NavbarAdm"
 import api from "../../apis/api";

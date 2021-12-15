@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../apis/api";
 
+import Navbar from "./Navbar";
+
 function Signup(props) {
   const [state, setState] = useState({ password: "", email: "" });
   const [errors, setErrors] = useState({
@@ -37,6 +39,7 @@ function Signup(props) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Navbar />
       <h1>Signup!</h1>
 
       <div>
