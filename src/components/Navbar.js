@@ -1,15 +1,12 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
+
 import { AuthContext } from "../contexts/authContext";
 
 function Navbar() {
-  const { loggedInUser } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const logout = ()=> {
-    localStorage.setItem("loggedInUser", "") 
-    navigate("/login");
-  }
+  const { loggedInUser, logout } = useContext(AuthContext);
+  
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

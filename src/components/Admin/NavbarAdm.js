@@ -41,18 +41,19 @@ function NavbarAdm() {
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}`
                 }
-                to="/criar-produto"
+                to="/product"
               >
                 Adicionar um produto
               </NavLink>
             </li>
-            </ul>
+            
+          </ul>
         </div>
         <div>
           {loggedInUser.user._id ? (
             <>
               <span>Bem-vindo, {loggedInUser.user.name}</span>
-              <button onClick={() => logout()} className="btn btn-link">
+              <button onClick={() => logout()} className="btn btn-link"> 
                 Sair
               </button>
             </>
