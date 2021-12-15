@@ -1,9 +1,9 @@
 import { useState } from "react";
 //import CreatableSelect from "react-select/creatable";
 
-import FormField from "../components/forms/FormField";
+import FormField from "../forms/FormField";
 
-import api from "../apis/api";
+import api from "../../apis/api";
 
 function ProductCreate() {
   const [productData, setProductData] = useState({
@@ -26,21 +26,7 @@ function ProductCreate() {
     setProductData({ ...productData, [e.target.name]: e.target.value });
   }
 
-  function handleKeyDown(e) {
-    if (e.key === "Enter") {
-      const { currentTag, tags } = productData;
-
-      setProductData({
-        ...productData,
-        currentTag: "",
-        tags: [...tags, { label: currentTag, value: currentTag }],
-      });
-
-      e.preventDefault();
-    }
-  }
-
-  async function handleFileUpload(file) {
+   async function handleFileUpload(file) {
     try {
       const uploadData = new FormData();
 
