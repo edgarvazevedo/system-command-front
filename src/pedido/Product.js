@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/authContext";
 
 import Navbar from "../components/Navbar"
 
@@ -19,11 +20,18 @@ function Product() {
       }
     }
     fetchProduct();
-  }, []);
+      }, []);
+
+      const authContext = useContext(AuthContext);
+      const { loggedInUser } = authContext;
+ 
 
   return (
     <div>
-      <Navbar />
+      {loggedInUser.token && loggedInUser.user.role === "USER"
+      ? <Navbar /> 
+      : null}
+  
       {productDetails.map((currentProduct) => (
         <div key={currentProduct.id}>
           <div className="card">
