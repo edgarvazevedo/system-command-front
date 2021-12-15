@@ -22,7 +22,7 @@ function Home() {
         <h1>System Command</h1>
         <p>Home</p>
         <div className="d-flex flex-column align-items-center">
-          <Link className="btn btn-lg btn-primary" to="/auth/signup">
+          <Link className="btn btn-lg btn-primary" to="/signup">
             Signup here!
           </Link>
         </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import api from "../apis/api";
 
@@ -22,22 +23,26 @@ function Product() {
     <div>
       {productDetails.map((currentProduct) => (
         <div key={currentProduct.id}>
-          <p>
-            Nome <span>{currentProduct.name}</span>
-          </p>
-          <p>
-            Descrição <span>{currentProduct.description}</span>
-          </p>
-          <p>
-        <strong>Preço de venda: </strong>
-        {currentProduct.price.toLocaleString("pt-BR", {
-          currency: "BRL",
-          style: "currency",
-        })}
-      </p>
-          <div>
-            <img className="img-fluid mh-100"
-            src={currentProduct.pictureUrl} alt="ds" />
+          <div className="card">
+            <img
+              src={currentProduct.pictureUrl}
+              className="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">{currentProduct.name}</h5>
+
+              <p class="card-text"> {currentProduct.description}</p>
+              <p>
+                {currentProduct.price.toLocaleString("pt-BR", {
+                  currency: "BRL",
+                  style: "currency",
+                })}
+              </p>
+              <Link to="#" class="btn btn-primary">
+                Adicionar ao pedido!
+              </Link>
+            </div>
           </div>
         </div>
       ))}
