@@ -24,21 +24,7 @@ function Admin() {
 
     setProductData({ ...productData, [e.target.name]: e.target.value });
   }
-
-  function handleKeyDown(e) {
-    if (e.key === "Enter") {
-      const { currentTag, tags } = productData;
-
-      setProductData({
-        ...productData,
-        currentTag: "",
-        tags: [...tags, { label: currentTag, value: currentTag }],
-      });
-
-      e.preventDefault();
-    }
-  }
-
+  
   async function handleFileUpload(file) {
     try {
       const uploadData = new FormData();

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import Navbar from "../components/Navbar"
+
 import api from "../apis/api";
 
 function Product() {
@@ -21,6 +23,7 @@ function Product() {
 
   return (
     <div>
+      <Navbar />
       {productDetails.map((currentProduct) => (
         <div key={currentProduct.id}>
           <div className="card">

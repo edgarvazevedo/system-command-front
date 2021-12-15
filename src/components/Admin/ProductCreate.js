@@ -1,9 +1,11 @@
 import { useState } from "react";
 //import CreatableSelect from "react-select/creatable";
 
-import FormField from "../components/forms/FormField";
+import FormField from "../forms/FormField";
 
-import api from "../apis/api";
+
+import NavbarAdm from "../Admin/NavbarAdm"
+import api from "../../apis/api";
 
 function ProductCreate() {
   const [productData, setProductData] = useState({
@@ -26,21 +28,7 @@ function ProductCreate() {
     setProductData({ ...productData, [e.target.name]: e.target.value });
   }
 
-  function handleKeyDown(e) {
-    if (e.key === "Enter") {
-      const { currentTag, tags } = productData;
-
-      setProductData({
-        ...productData,
-        currentTag: "",
-        tags: [...tags, { label: currentTag, value: currentTag }],
-      });
-
-      e.preventDefault();
-    }
-  }
-
-  async function handleFileUpload(file) {
+   async function handleFileUpload(file) {
     try {
       const uploadData = new FormData();
 
@@ -67,7 +55,7 @@ function ProductCreate() {
       const response = await api.post("/product", {
         ...productData,
         pictureUrl,
-        tags: productData.tags.map((currentTagObj) => currentTagObj.value),
+        
       });
 
       console.log(response);
@@ -80,6 +68,7 @@ function ProductCreate() {
 
   return (
     <div>
+      <NavbarAdm />
       <h1>Novo Produto</h1>
       <form onSubmit={handleSubmit}>
         <FormField
@@ -136,7 +125,7 @@ function ProductCreate() {
         />
 
         <div className="mb-3 text-right">
-          <button disabled={loading} type="submit" className="btn btn-primary">
+          <button onClick={handleSubmit} disabled={loading} type="submit" className="btn btn-primary">
             {loading ? (
               <>
                 <span
