@@ -122,7 +122,7 @@ function ProductCreate() {
         />
 
         <div className="mb-3 text-right">
-          <button onClick={handleSubmit} disabled={loading} type="submit" className="btn btn-primary">
+          <button onClick={handleSubmit} type="submit" className="btn btn-primary">
             {loading ? (
               <>
                 <span

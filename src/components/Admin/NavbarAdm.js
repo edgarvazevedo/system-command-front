@@ -31,7 +31,7 @@ function NavbarAdm() {
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}`
                 }
-                to="/"
+                to="/home-admin"
               >
                 Home
               </NavLink>
@@ -41,7 +41,7 @@ function NavbarAdm() {
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}`
                 }
-                to="/product"
+                to="/criar-produto"
               >
                 Adicionar um produto
               </NavLink>
