@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 
-function Navbar() {
+function NavbarAdm() {
   const { loggedInUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const logout = () => {
@@ -41,22 +41,12 @@ function Navbar() {
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}`
                 }
-                to="/pedido"
+                to="/criar-produto"
               >
-                Pedidos
+                Adicionar um produto
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? "active" : ""}`
-                }
-                to="/sobre"
-              >
-                Sobre
-              </NavLink>
-            </li>
-          </ul>
+            </ul>
         </div>
         <div>
           {loggedInUser.user._id ? (
@@ -81,4 +71,4 @@ function Navbar() {
     </nav>
   );
 }
-export default Navbar;
+export default NavbarAdm;

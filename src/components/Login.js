@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect  } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../apis/api";
+
 
 import { AuthContext } from "../contexts/authContext"
 
@@ -15,6 +16,26 @@ function Login(props) {
 
   const navigate = useNavigate();
 
+const {loggedInUser, setLoggedInUser} = authContext
+
+console.log("loggedInUser", loggedInUser)
+
+useEffect(() => {
+  if (loggedInUser.token && loggedInUser.user.role === "ADMIN") {
+    navigate("/admin");
+  } else if (loggedInUser.token && loggedInUser.user.role === "USER") {
+    navigate("/");
+  }
+
+},[])
+
+
+
+
+
+
+
+
   function handleChange(event) {
     setState({
       ...state,
@@ -27,13 +48,21 @@ function Login(props) {
 
     try {
       const response = await api.post("/login", state);
-      console.log(response);
+      console.log("erro", response);
 
       authContext.setLoggedInUser({ ...response.data });
       localStorage.setItem(
         "loggedInUser",
         JSON.stringify({ ...response.data })
+        
+       
       );
+      if (setLoggedInUser.token && setLoggedInUser.data.user.role === "ADMIN") {
+        navigate("/admin");
+      } else if (setLoggedInUser.token && setLoggedInUser.data.user.role === "USER") {
+        navigate("/");
+      }
+
       setErrors({ password: "", email: "" });
       navigate("/");
     } catch (err) {
