@@ -7,8 +7,7 @@ import videoIntro from "../assets/videoplayback.mp4";
 
 function Home() {
   return (
-   
-    <div id="home">
+    <div>
       <Navbar />
       <div>
         <div id="videoContainer"/>

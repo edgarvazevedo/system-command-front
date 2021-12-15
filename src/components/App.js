@@ -14,12 +14,10 @@ import Sobre from "./Sobre";
 
 import { AuthContextComponent } from "../contexts/authContext";
 import ProductCreate from "./Admin/ProductCreate";
-
+ 
 function App() {
   return (
     <AuthContextComponent>
-      
-      <div className="container mt-5"></div>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/signup" element={<Signup />} />
