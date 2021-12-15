@@ -21,14 +21,14 @@ function App() {
       <Navbar />
       <div className="container mt-5"></div>
       <Routes>
-        <Route path="/" element={<ProtectedRoute component={Home} />} />
+        <Route path="/" element={<Home/>} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/product/create"
           element={<ProtectedRoute component={ProductCreate} />}
         />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product" element={<ProtectedRoute component={Product} />} />
         <Route
           path="/product/delete/:id"
           element={<ProtectedRoute component={ProductDelete} />}
