@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import ProductCreate from "../pedido/ProductCreate";
 import Product from "../pedido/Product";
 import ProductDelete from "../pedido/ProductDelete";
+import Admin from "./Admin";
 
 import Sobre from "./Sobre";
 
@@ -34,6 +35,7 @@ function App() {
           element={<ProtectedRoute component={ProductDelete} />}
         />
         <Route path="/sobre" element={<Sobre />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </AuthContextComponent>
   );
