@@ -1,6 +1,9 @@
+import Navbar from "./Navbar";
+
 function Sobre() {
   return (
     <div id="home">
+      <Navbar />
       <div></div>
       <div className="text-center">
         <p>

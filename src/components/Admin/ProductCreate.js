@@ -3,6 +3,8 @@ import { useState } from "react";
 
 import FormField from "../forms/FormField";
 
+
+import NavbarAdm from "../Admin/NavbarAdm"
 import api from "../../apis/api";
 
 function ProductCreate() {
@@ -53,7 +55,7 @@ function ProductCreate() {
       const response = await api.post("/product", {
         ...productData,
         pictureUrl,
-        tags: productData.tags.map((currentTagObj) => currentTagObj.value),
+        
       });
 
       console.log(response);
@@ -66,6 +68,7 @@ function ProductCreate() {
 
   return (
     <div>
+      <NavbarAdm />
       <h1>Novo Produto</h1>
       <form onSubmit={handleSubmit}>
         <FormField
@@ -122,7 +125,7 @@ function ProductCreate() {
         />
 
         <div className="mb-3 text-right">
-          <button disabled={loading} type="submit" className="btn btn-primary">
+          <button onClick={handleSubmit} disabled={loading} type="submit" className="btn btn-primary">
             {loading ? (
               <>
                 <span
