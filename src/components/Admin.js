@@ -121,7 +121,7 @@ function Admin() {
         />
 
         <div className="mb-3 text-right">
-          <button disabled={loading} type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             {loading ? (
               <>
                 <span
