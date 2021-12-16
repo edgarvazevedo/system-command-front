@@ -11,9 +11,13 @@ import Product from "../pedido/Product";
 
 import Sobre from "./Sobre";
 
+import ProductDelete from "./Admin/ProductDelete";
+
+import ProductEdit from "./Admin/ProductEdit";
+
 import { AuthContextComponent } from "../contexts/authContext";
 import ProductCreate from "./Admin/ProductCreate";
- 
+
 function App() {
   return (
     <AuthContextComponent>
@@ -21,12 +25,27 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/product" element={<ProtectedRoute component={Product} />} />
+        <Route
+          path="/product"
+          element={<ProtectedRoute component={Product} />}
+        />
         <Route path="/sobre" element={<Sobre />} />
-        <Route path="/home-admin" element={<ProtectedRoute component={HomeAdm} />} />
+        <Route
+          path="/home-admin"
+          element={<ProtectedRoute component={HomeAdm} />}
+        />
         <Route
           path="/criar-produto"
           element={<ProtectedRoute component={ProductCreate} />}
+        />
+        <Route
+          path="/deletar-produto/:id"
+          element={<ProtectedRoute component={ProductDelete} />}
+        />
+
+        <Route
+          path="/editar-produto/:id"
+          element={<ProtectedRoute component={ProductEdit} />}
         />
       </Routes>
     </AuthContextComponent>

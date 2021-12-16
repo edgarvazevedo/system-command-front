@@ -2,8 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/authContext";
 
-import Navbar from "../components/Navbar"
-
+import Navbar from "../components/Navbar";
+import NavbarAdm from "../components/Admin/NavbarAdm";
 import api from "../apis/api";
 
 function Product() {
@@ -20,18 +20,19 @@ function Product() {
       }
     }
     fetchProduct();
-      }, []);
+  }, []);
 
-      const authContext = useContext(AuthContext);
-      const { loggedInUser } = authContext;
- 
+  const authContext = useContext(AuthContext);
+  const { loggedInUser } = authContext;
 
   return (
     <div>
-      {loggedInUser.token && loggedInUser.user.role === "USER"
-      ? <Navbar /> 
-      : null}
-  
+      {loggedInUser.token && loggedInUser.user.role === "USER" ? (
+        <Navbar />
+      ) : (
+        <NavbarAdm />
+      )}
+
       {productDetails.map((currentProduct) => (
         <div key={currentProduct.id} className="pt-5">
           <div className="card">
@@ -53,6 +54,18 @@ function Product() {
               <Link to="#" class="btn btn-primary">
                 Adicionar ao pedido!
               </Link>
+              <div className="editar">
+                {loggedInUser.user.role === "ADMIN" ? (
+                  <Link to={`/deletar-produto/${currentProduct._id}`}>
+                    <i class="fas fa-trash-alt"></i>
+                  </Link>
+                ) : null}
+                {loggedInUser.user.role === "ADMIN" ? (
+                  <Link to={`/editar-produto/${currentProduct._id}`}>
+                    <i className="fas fa-edit"></i>
+                  </Link>
+                ) : null}
+              </div>
             </div>
           </div>
         </div>
