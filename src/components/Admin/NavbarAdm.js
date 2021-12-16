@@ -48,6 +48,7 @@ function NavbarAdm() {
             </li>
             
           </ul>
+          ,
         </div>
         <div>
           {loggedInUser.user._id ? (

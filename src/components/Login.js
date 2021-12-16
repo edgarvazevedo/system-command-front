@@ -20,6 +20,12 @@ function Login(props) {
 
   console.log("loggedInUser", loggedInUser);
 
+  if (loggedInUser.token && loggedInUser.user.role === "ADMIN") {
+    navigate("/criar-produto");
+  } else if (loggedInUser.token && loggedInUser.user.role === "USER") {
+    navigate("/");
+  }
+
   function handleChange(event) {
     setState({
       ...state,
@@ -40,13 +46,8 @@ function Login(props) {
         "loggedInUser",
         JSON.stringify({ ...response.data })
       );
-      if (loggedInUser.token && loggedInUser.user.role === "ADMIN") {
-        navigate("/criar-produto");
-      } else if (loggedInUser.token && loggedInUser.user.role === "USER") {
-        navigate("/");
-      }
-
-      setErrors({ password: "", email: "" });
+      console.log(loggedInUser.token, loggedInUser.user.role)
+      
     } catch (err) {
       console.error(err);
       console.log(1234);

@@ -1,21 +1,18 @@
 import { useState } from "react";
-import FormField from "../forms/FormField";
 
-import NavbarAdm from "../Admin/NavbarAdm"
-import api from "../../apis/api";
-import Navbar from "../Navbar";
-import { useNavigate } from "react-router-dom";
+import FormField from "../components/forms/FormField";
 
-function ProductCreate() {
+import api from "../apis/api";
+
+function Admin() {
   const [productData, setProductData] = useState({
     name: "",
     description: "",
-    price: 0, 
+    price: 0,
     inStock: 0,
     pictureUrl: "",
   });
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   function handleChange(e) {
     if (e.target.files) {
@@ -27,8 +24,8 @@ function ProductCreate() {
 
     setProductData({ ...productData, [e.target.name]: e.target.value });
   }
-
-   async function handleFileUpload(file) {
+  
+  async function handleFileUpload(file) {
     try {
       const uploadData = new FormData();
 
@@ -50,17 +47,16 @@ function ProductCreate() {
     try {
       setLoading(true);
 
-      const pictureUrl = await handleFileUpload(productData.pictureUrl);
+      const pictureUrl = await handleFileUpload(productData.picture);
 
       const response = await api.post("/product", {
         ...productData,
         pictureUrl,
-        
+        tags: productData.tags.map((currentTagObj) => currentTagObj.value),
       });
 
       console.log(response);
       setLoading(false);
-      navigate("/home-admin")
     } catch (err) {
       console.error(err);
       setLoading(false);
@@ -69,7 +65,6 @@ function ProductCreate() {
 
   return (
     <div>
-      <NavbarAdm />
       <h1>Novo Produto</h1>
       <form onSubmit={handleSubmit}>
         <FormField
@@ -126,7 +121,7 @@ function ProductCreate() {
         />
 
         <div className="mb-3 text-right">
-          <button onClick={handleSubmit} type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             {loading ? (
               <>
                 <span
@@ -146,4 +141,4 @@ function ProductCreate() {
   );
 }
 
-export default ProductCreate;
+export default Admin;
