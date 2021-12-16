@@ -1,11 +1,15 @@
-import React from "react";
+import {React} from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar"
+
 
 import Carrinho from "./Carrinho/carrinho"
 
 import "./Home.css";
 import videoIntro from "../assets/videoplayback.mp4";
+
+
+
 
 function Home() {
   return (
@@ -13,7 +17,7 @@ function Home() {
     <div>
       <Navbar />
       <div>
-        <div id="videoContainer"/>
+       <div id="videoContainer"/>
         <video
           loop
           autoPlay

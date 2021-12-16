@@ -11,7 +11,7 @@ function Login(props) {
   const authContext = useContext(AuthContext);
 
   const [state, setState] = useState({ password: "", email: "" });
-  const [errors, setErrors] = useState({
+  const [errors] = useState({
     email: null,
     password: null,
   });
