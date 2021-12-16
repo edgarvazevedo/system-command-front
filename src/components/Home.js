@@ -21,12 +21,12 @@ function Home() {
           type="video/mp4"
         ></video>
       </div>
-      <div className="text-center">
+      <div className="texto-home">
         <h1>System Command</h1>
-        <p>Home</p>
-        <div className="d-flex flex-column align-items-center">
+        <p>Pode fazer seu pedido e retirar no nosso restaurante!</p>
+        <div className="d-flex flex-column align-items-center pt-5">
           <Link className="btn btn-lg btn-primary" to="/signup">
-            Signup here!
+            Cadastre-se aqui!
           </Link>
         </div>
       </div>
