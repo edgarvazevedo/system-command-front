@@ -25,3 +25,8 @@ video {
     left: -110vw;
     z-index: -2;
 }
+
+.texto-home {
+    margin-left: 40px;
+    margin-top: 100px;
+}

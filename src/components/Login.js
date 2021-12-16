@@ -1,9 +1,11 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../apis/api";
 
 import Navbar from "./Navbar";
 import { AuthContext } from "../contexts/authContext";
+import "./Login.css";
+import logoLogin from "../assets/logo-login.png";
 
 function Login(props) {
   const authContext = useContext(AuthContext);
@@ -57,11 +59,15 @@ function Login(props) {
   return (
     <form onSubmit={handleSubmit}>
       <Navbar />
-      <h1>Login</h1>
 
-      <div>
-        <label htmlFor="signupFormEmail">E-mail</label>
+      <h1>Login</h1>
+      <img className="image-login" src={logoLogin} alt="logo" />
+      <p className="texto-login">Seja bem-vind@, faça seu login para se deliciar com nosso menu!</p>
+
+      <div className="ms-5 pb-3">
+        <label htmlFor="signupFormEmail"></label>
         <input
+          placeholder="E-mail"
           type="email"
           name="email"
           id="signupFormEmail"
@@ -71,9 +77,10 @@ function Login(props) {
         />
       </div>
 
-      <div>
-        <label htmlFor="signupFormPassword">Password</label>
+      <div className="ms-5">
+        <label htmlFor="signupFormPassword"></label>
         <input
+          placeholder="Password"
           type="password"
           name="password"
           id="signupFormPassword"
@@ -83,10 +90,13 @@ function Login(props) {
         />
       </div>
 
-      <div>
-        <button type="submit">Login!</button>
-
-        <Link to="/signup">Register</Link>
+      <div className="botao pt-5">
+        <button type="submit" className="btn btn-primary">
+          Login!
+        </button>
+        <div>
+          <Link to="/signup">Não tem conta? Clique aqui!</Link>
+        </div>
       </div>
     </form>
   );

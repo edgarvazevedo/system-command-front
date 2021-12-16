@@ -33,14 +33,14 @@ function Product() {
       : null}
   
       {productDetails.map((currentProduct) => (
-        <div key={currentProduct.id}>
+        <div key={currentProduct.id} className="pt-5">
           <div className="card">
             <img
               src={currentProduct.pictureUrl}
               className="card-img-top"
               alt="..."
             />
-            <div class="card-body">
+            <div class="card-body ">
               <h5 class="card-title">{currentProduct.name}</h5>
 
               <p class="card-text"> {currentProduct.description}</p>
