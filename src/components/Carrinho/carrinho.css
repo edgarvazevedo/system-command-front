@@ -1,0 +1,12 @@
+.carrinho {
+    width: 100%;
+    background-color: rgb(33,37,41);
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}

@@ -3,16 +3,19 @@ import FormField from "../forms/FormField";
 
 import NavbarAdm from "../Admin/NavbarAdm"
 import api from "../../apis/api";
+import Navbar from "../Navbar";
+import { useNavigate } from "react-router-dom";
 
 function ProductCreate() {
   const [productData, setProductData] = useState({
     name: "",
     description: "",
-    price: 0,
+    price: 0, 
     inStock: 0,
     pictureUrl: "",
   });
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   function handleChange(e) {
     if (e.target.files) {
@@ -47,7 +50,7 @@ function ProductCreate() {
     try {
       setLoading(true);
 
-      const pictureUrl = await handleFileUpload(productData.picture);
+      const pictureUrl = await handleFileUpload(productData.pictureUrl);
 
       const response = await api.post("/product", {
         ...productData,
@@ -57,6 +60,7 @@ function ProductCreate() {
 
       console.log(response);
       setLoading(false);
+      navigate("/home-admin")
     } catch (err) {
       console.error(err);
       setLoading(false);
