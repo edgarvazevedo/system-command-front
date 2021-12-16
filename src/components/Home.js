@@ -28,10 +28,10 @@ function Home() {
         ></video>
       </div>
       <div className="texto-home">
-        <h1>System Command</h1>
-        <p>Pode fazer seu pedido e retirar no nosso restaurante!</p>
+        <h1>STEAKHOUSE</h1>
+        <p>Faça seu pedido no nosso site e retire no restaurante!</p>
         <div className="d-flex flex-column align-items-center pt-5">
-          <Link className="btn btn-lg btn-primary" to="/signup">
+          <Link className="btn btn-lg btn-danger" to="/signup">
             Cadastre-se aqui!
           </Link>
         </div>
