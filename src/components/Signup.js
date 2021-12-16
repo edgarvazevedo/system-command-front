@@ -42,7 +42,7 @@ function Signup(props) {
     <form onSubmit={handleSubmit}>
       <Navbar />
       <h1>Signup!</h1>
-      <img src={logoSignup} alt="Signup" />
+      <img className="image-login" src={logoSignup} alt="Signup" />
 
       <div className="ms-5 pb-3">
         <label htmlFor="signupFormName"></label>
