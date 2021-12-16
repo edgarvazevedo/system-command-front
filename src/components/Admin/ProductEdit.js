@@ -49,7 +49,7 @@ function ProductEdit() {
     try {
       setLoading(true);
 
-      const response = await api.patch(`/product/${id}`);
+      const response = await api.patch(`/product/${id}`,productData);
 
       console.log(response);
       setLoading(false);
