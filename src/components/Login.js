@@ -20,12 +20,12 @@ function Login(props) {
 
   const { loggedInUser, setLoggedInUser } = authContext;
 
-  console.log("loggedInUser", loggedInUser);
+  
 
   if (loggedInUser.token && loggedInUser.user.role === "ADMIN") {
     navigate("/criar-produto");
   } else if (loggedInUser.token && loggedInUser.user.role === "USER") {
-    navigate("/");
+    navigate("/product");
   }
 
   function handleChange(event) {

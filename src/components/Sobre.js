@@ -1,24 +1,33 @@
 import Navbar from "./Navbar";
 
+import "./Sobre.css";
+import partner from "../assets/noun-partner-3201804.png";
+
 function Sobre() {
   return (
-    <div id="home">
+    <div>
       <Navbar />
-      <div></div>
-      <div className="text-center">
+      <div className="image-login mt-5">
+        <img src={partner} alt="Sobre" />
+      </div>
+
+      <div className="text-center ms-3 me-3 mt-3">
         <p>
-          Porque é que o usamos? É um facto estabelecido de que um leitor é
-          distraído pelo conteúdo legível de uma página quando analisa a sua
-          mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição
-          mais ou menos normal de letras, ao contrário do uso de "Conteúdo aqui,
-          conteúdo aqui", tornando-o texto legível. Muitas ferramentas de
-          publicação electrónica e editores de páginas web usam actualmente o
-          Lorem Ipsum como o modelo de texto usado por omissão, e uma pesquisa
-          por "lorem ipsum" irá encontrar muitos websites ainda na sua infância.
-          Várias versões têm evoluído ao longo dos anos, por vezes por acidente,
-          por vezes propositadamente (como no caso do humor).
+          Projeto desenvolvido por{" "}
+          <a
+            href="https://www.linkedin.com/in/elizeu-santos-048730bb"
+            target="_blank"
+          >
+            Elizeu Santos{" "}
+          </a>{" "}
+          e{" "}
+          <a href="https://www.linkedin.com/in/edgarvazevedo" target="_blank">
+            Edgar Azevedo
+          </a> durante a ultima semana de Bootcamp da Ironhack. A ideia incial era
+          ser criada um sistema de comandas de restaurantes onde o cliente faz o
+          pedido pelo aplicativo e em seguida o pedido é enviado para a cozinha
+          em tempo real.
         </p>
-        <div className="d-flex flex-column align-items-center"></div>
       </div>
     </div>
   );
